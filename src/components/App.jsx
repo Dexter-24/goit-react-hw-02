@@ -3,6 +3,7 @@ import './App.css'
 import Description from './Description/Description';
 import Options from './Options/Options';
 import Feedback from './Feedback/Feedback';
+import Notification from './Notification/Notification';
 
 export default function App() {
   const [feedback, setFeedback] = useState(() => {
@@ -34,7 +35,7 @@ const positiveFeedback = totalFeedback > 0 ? Math.round((feedback.good / totalFe
     <div>
       <Description />
       <Options onLeaveFeedback={handleFeedback} totalFeedback={totalFeedback}/>
-      {totalFeedback > 0 ? <Feedback feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} /> : <p>No feedbacks for now</p>}
+      {totalFeedback > 0 ? <Feedback feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} /> : <Notification/>}
     </div>
   )
 }
